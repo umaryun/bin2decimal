@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>binary to decimal</title>
+</head>
+<body>
+    <h1>This converts binary digits to decimals</h1><div class="content">
+    <input type="number" id="input-field" placeholder="input the binary numbers">
+    <button>Convert</button>
+    <div id="converted-value"></div>
+</div>
+    <style>
+        *{
+            background: linear-gradient(to right, #bc00dd, #d100d1, #db00b6, #e500a4, #f20089);
+       margin: none;
+       box-sizing: border-box;
+        }
+        h1{
+            text-align: center;
+            font-size: 50px;
+            color: white;
+        }
+        .content{
+            text-align: center;
+            height: 200px;
+            
+        }
+        input{
+            padding: 10px;
+            background: #fff;
+            margin-right: 20px;
+            border: 5px solid white;
+        }
+        input ::placeholder{
+            color: black;
+            font-weight: bold;
+        }
+        button{
+            padding: 10px;
+            background: #305090;
+            cursor: pointer;
+        }
+        #converted-value{
+            font-weight: bold;
+            font-size: 26px;
+        }
+
+    </style>
+    <script>
+        const inputField = document.getElementById("input-field")
+        const convertButton = document.querySelector('button')
+        let convertedValue = document.getElementById("converted-value")
+        
+    function convrter(){
+        function nums(){
+            let data = inputField.value;
+            for (let i = 0; i < data.length; i++){
+               if(data[i] >= 2){
+                inputField.value = ""
+               }} 
+        }
+        
+    if(nums()){}
+       else if (inputField.value == ""){
+            alert("please input a binary number")
+        }else {
+            binaryToDecimal()
+       }}   
+    convertButton.addEventListener('click', () =>{
+        convrter()
+        
+    })
+    
+    function binaryToDecimal(){
+        let binary = inputField.value
+        decimal = 0;
+        let power = binary.length - 1;
+        for (let i=0; i<binary.length; i++){
+            decimal += binary[i] * (2 ** power);
+            power -= 1;
+           // console.log(decimal)
+          //  console.log(power)
+        }  
+        console.log(decimal)
+        let paragrph = document.createElement('p')
+        paragrph.textContent = inputField.value + " when converted to decimal is equal to " + decimal
+        convertedValue.appendChild(paragrph)
+        inputField.value = ""
+    }
+    </script>
+</body>
+</html>
